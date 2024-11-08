@@ -1,0 +1,23 @@
+{
+  "canisters": {
+    "icp_simple_site": {
+      "frontend": {
+        "entrypoint": "src/index.html"
+      },
+      "source": ["src"],
+      "type": "assets"
+    }
+  },
+  "dfx": "0.22.0",
+  "version": 1,
+  "networks": {
+    "ic": {
+      "providers": ["https://ic0.app"],
+      "type": "ephemeral"
+    },
+    "local": {
+      "bind": "0.0.0.0:8000",
+      "type": "ephemeral"
+    }
+  }
+}
