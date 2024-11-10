@@ -58,9 +58,19 @@ https://templatemo.com/tm-556-catalog-z
             console.log('identity', identity)
             const principalId = identity.getPrincipal().toString();
             document.getElementById("wallet-info").innerText = `Connected to wallet with Principal ID: ${principalId}`;
+            document.getElementById("btn-connect-wallet").innerHTML = principalId.substr(0, 10);
         }
         window.displayWalletInfo = displayWalletInfo
 
+
+        function projectVerify() {
+            if (confirm("Becoming a verified community member of this project requires 50 $ICP tokens. Would you like to continue?")) {
+                // update badge
+                document.getElementById("verify-demo").className = "fas fa-user-check"
+            }
+        }
+        window.projectVerify = projectVerify
+ 
     </script>
 
 
@@ -96,7 +106,7 @@ https://templatemo.com/tm-556-catalog-z
                     <a class="nav-link nav-link-4" href="contact.html">Contact</a>
                 </li>
                 <li>
-                    <button class="btn btn-primary tm-btn-next" onclick="connectWallet()">Connect Wallet</button>
+                    <button id="btn-connect-wallet" class="btn btn-primary tm-btn-next" onclick="connectWallet()">Connect Wallet</button>
                 </li>
             </ul>
             </div>
@@ -134,6 +144,8 @@ https://templatemo.com/tm-556-catalog-z
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span class="tm-text-gray-light"><a target="_blank" href="https://oc.app/">oc.app</a></span>
+                    <span><a href=><i class="fas fa-check-double"></i></a></span>
+                    <span onclick="projectVerify()"><i id="verify-demo" class="fas fa-user"></i></span>
                     <span>🇵🇭 Philippines</span>
                 </div>
             </div>
@@ -147,6 +159,8 @@ https://templatemo.com/tm-556-catalog-z
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span class="tm-text-gray-light"><a target="_blank" href="https://bioniq.io/">bioniq.io</a></span>
+                    <span><a href=><i class="fas fa-check-double"></i></a></span>
+                    <span><i class="fas fa-user"></i></span>
                     <span>🇹🇭 Thailand</span>
                 </div>
             </div>
@@ -160,6 +174,8 @@ https://templatemo.com/tm-556-catalog-z
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span class="tm-text-gray-light"><a target="_blank" href="https://docs.zondax.ch/ICP">docs.zondax.ch/ICP</a></span>
+                    <span><a href=><i class="fas fa-check-double"></i></a></span>
+                    <span><i class="fas fa-user"></i></span>
                     <span>🇲🇾 Malaysia</span>
                 </div>
             </div>
@@ -173,6 +189,8 @@ https://templatemo.com/tm-556-catalog-z
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span class="tm-text-gray-light"><a target="_blank" href="https://www.thecubetopia.com/">www.thecubetopia.com</a></span>
+                    <span><a href=><i class="fas fa-check-double"></i></a></span>
+                    <span><i class="fas fa-user"></i></span>
                     <span>🇮🇳 India</span>
                 </div>
             </div>
@@ -187,6 +205,8 @@ https://templatemo.com/tm-556-catalog-z
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span class="tm-text-gray-light"><a target="_blank" href="https://74iy7-xqaaa-aaaaf-qagra-cai.ic0.app/">74iy7-xqaaa-aaaaf-qagra-cai.ic0.app</a></span>
+                    <span><a href=><i class="fas fa-check-double"></i></a></span>
+                    <span><i class="fas fa-user"></i></span>
                     <span>🇮🇳 India</span>
                 </div>
             </div>
@@ -200,6 +220,8 @@ https://templatemo.com/tm-556-catalog-z
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span class="tm-text-gray-light"><a target="_blank" href="https://bitfinity.network/">bitfinity.network</a></span>
+                    <span><a href=><i class="fas fa-check-double"></i></a></span>
+                    <span><i class="fas fa-user"></i></span>
                     <span>🇰🇷 Korea</span>
                 </div>
             </div>
@@ -213,6 +235,8 @@ https://templatemo.com/tm-556-catalog-z
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span class="tm-text-gray-light"><a target="_blank" href="https://catalyze.one/">catalyze.one</a></span>
+                    <span><a href=><i class="fas fa-check-double"></i></a></span>
+                    <span><i class="fas fa-user"></i></span>
                     <span>🇮🇩 Indonesia</span>
                 </div>
             </div>
@@ -226,6 +250,8 @@ https://templatemo.com/tm-556-catalog-z
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span class="tm-text-gray-light"><a target="_blank" href="https://juno.build/">juno.build</a></span>
+                    <span><a href=><i class="fas fa-check-double"></i></a></span>
+                    <span><i class="fas fa-user"></i></span>
                     <span>🇸🇬 Singapore</span>
                 </div>
             </div>
