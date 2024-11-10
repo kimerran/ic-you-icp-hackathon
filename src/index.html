@@ -14,8 +14,56 @@ TemplateMo 556 Catalog-Z
 https://templatemo.com/tm-556-catalog-z
 
 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@dfinity/agent@2.1.3/lib/cjs/index.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@dfinity/auth-client@2.1.3/lib/cjs/index.min.js"></script> -->
+    <script type="module">
+        import dfinityagent from 'https://cdn.jsdelivr.net/npm/@dfinity/agent@2.1.3/+esm'
+        </script>
+
+    <script type="module">
+        import dfinityauthClient from 'https://cdn.jsdelivr.net/npm/@dfinity/auth-client@2.1.3/+esm'
+        </script>
+
 </head>
 <body>
+    <!-- <h1>Connect to ICP Wallet</h1> -->
+    <script type="module">
+        import * as dfinityagent from 'https://cdn.jsdelivr.net/npm/@dfinity/agent@2.1.3/+esm'
+        import * as dfinityauthClient from 'https://cdn.jsdelivr.net/npm/@dfinity/auth-client@2.1.3/+esm'
+
+        async function connectWallet() {
+            // dfinityagent.dfinityauthClient
+            const authClient = await dfinityauthClient.AuthClient.create();
+            console.log(authClient)
+
+            // Check if the user is already authenticated
+            if (await authClient.isAuthenticated()) {
+                displayWalletInfo(authClient);
+            } else {
+                // Prompt for Internet Identity login
+                await authClient.login({
+                    identityProvider: "https://identity.ic0.app",
+                    onSuccess: () => displayWalletInfo(authClient),
+                    onError: (error) => {
+                        console.log('error', error);
+                        document.getElementById("wallet-info").innerText = "Login failed: " + error;
+                    }
+                });
+            }
+        }
+        window.connectWallet = connectWallet
+
+        function displayWalletInfo(authClient) {
+            const identity = authClient.getIdentity();
+            console.log('identity', identity)
+            const principalId = identity.getPrincipal().toString();
+            document.getElementById("wallet-info").innerText = `Connected to wallet with Principal ID: ${principalId}`;
+        }
+        window.displayWalletInfo = displayWalletInfo
+
+    </script>
+
+
     <!-- Page Loader -->
     <div id="loader-wrapper">
         <div id="loader"></div>
@@ -27,7 +75,7 @@ https://templatemo.com/tm-556-catalog-z
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-film mr-2"></i>
+                <img height="64" src="img/icyou-logo.png" />
                 IC-You
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,6 +94,9 @@ https://templatemo.com/tm-556-catalog-z
                 </li> -->
                 <li class="nav-item">
                     <a class="nav-link nav-link-4" href="contact.html">Contact</a>
+                </li>
+                <li>
+                    <button class="btn btn-primary tm-btn-next" onclick="connectWallet()">Connect Wallet</button>
                 </li>
             </ul>
             </div>
@@ -82,21 +133,21 @@ https://templatemo.com/tm-556-catalog-z
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">18 Oct 2020</span>
-                    <span>9,906 views</span>
+                    <span class="tm-text-gray-light"><a target="_blank" href="https://oc.app/">oc.app</a></span>
+                    <span>🇵🇭 Philippines</span>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
                     <img src="img/img-04.jpg" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>BIONIC</h2>
+                        <h2>BIONIQ</h2>
                         <a href="#">View more</a>
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">14 Oct 2020</span>
-                    <span>16,100 views</span>
+                    <span class="tm-text-gray-light"><a target="_blank" href="https://bioniq.io/">bioniq.io</a></span>
+                    <span>🇹🇭 Thailand</span>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
@@ -108,8 +159,8 @@ https://templatemo.com/tm-556-catalog-z
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">12 Oct 2020</span>
-                    <span>12,460 views</span>
+                    <span class="tm-text-gray-light"><a target="_blank" href="https://docs.zondax.ch/ICP">docs.zondax.ch/ICP</a></span>
+                    <span>🇲🇾 Malaysia</span>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
@@ -121,8 +172,8 @@ https://templatemo.com/tm-556-catalog-z
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">10 Oct 2020</span>
-                    <span>11,402 views</span>
+                    <span class="tm-text-gray-light"><a target="_blank" href="https://www.thecubetopia.com/">www.thecubetopia.com</a></span>
+                    <span>🇮🇳 India</span>
                 </div>
             </div>
             
@@ -135,8 +186,8 @@ https://templatemo.com/tm-556-catalog-z
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">24 Sep 2020</span>
-                    <span>16,008 views</span>
+                    <span class="tm-text-gray-light"><a target="_blank" href="https://74iy7-xqaaa-aaaaf-qagra-cai.ic0.app/">74iy7-xqaaa-aaaaf-qagra-cai.ic0.app</a></span>
+                    <span>🇮🇳 India</span>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
@@ -148,8 +199,8 @@ https://templatemo.com/tm-556-catalog-z
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">20 Sep 2020</span>
-                    <span>12,860 views</span>
+                    <span class="tm-text-gray-light"><a target="_blank" href="https://bitfinity.network/">bitfinity.network</a></span>
+                    <span>🇰🇷 Korea</span>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
@@ -161,8 +212,8 @@ https://templatemo.com/tm-556-catalog-z
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">16 Sep 2020</span>
-                    <span>10,900 views</span>
+                    <span class="tm-text-gray-light"><a target="_blank" href="https://catalyze.one/">catalyze.one</a></span>
+                    <span>🇮🇩 Indonesia</span>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
@@ -170,12 +221,12 @@ https://templatemo.com/tm-556-catalog-z
                     <img src="img/img-08.jpg" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2>juno</h2>
-                        <a href="#">View more</a>
+                        <a href="photo-detail.html">View more</a>
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">12 Sep 2020</span>
-                    <span>11,300 views</span>
+                    <span class="tm-text-gray-light"><a target="_blank" href="https://juno.build/">juno.build</a></span>
+                    <span>🇸🇬 Singapore</span>
                 </div>
             </div>
             <!-- <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
@@ -336,7 +387,7 @@ https://templatemo.com/tm-556-catalog-z
             </div>
         </div>
     </footer>
-    
+    <div id="wallet-info"></div>
     <script src="js/plugins.js"></script>
     <script>
         $(window).on("load", function() {
